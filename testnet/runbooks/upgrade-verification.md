@@ -328,3 +328,14 @@ broke `upgrade()`.
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
 - [`../registry/admin-addresses.md`](../registry/admin-addresses.md)
 - [`../monitoring/README.md`](../monitoring/README.md)
+
+## Quick Reference (added 2026-10-16)
+
+After `upgrade()`:
+
+1. The transaction succeeded. There is no upgrade event, so check the transaction result.
+2. The contract's current code hash equals the 32-byte hash you passed.
+3. A method whose behavior changed returns the new result.
+4. Existing state (status, payments, reserve) is unchanged.
+
+Upgrades apply to one instance only. Record the result in `testnet/registry/upgrade-history.md`.

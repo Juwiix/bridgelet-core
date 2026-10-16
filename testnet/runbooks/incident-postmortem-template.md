@@ -147,3 +147,17 @@ An explicitly unassigned action is better than inventing an on-call owner.
 - [`rpc-outage.md`](rpc-outage.md)
 - [`reentrancy-suspicion.md`](reentrancy-suspicion.md)
 - [`../docs/support.md`](../docs/support.md)
+
+## Quick Reference (added 2026-10-16)
+
+For a small incident, a short version is enough:
+
+```
+Date and time (UTC):
+What happened:
+Impact:
+Root cause (or "unknown"):
+Follow-up actions (owner, due date):
+```
+
+Use `unknown` instead of guessing. Move to the full template above if the cause is unclear or users were affected for a long time.
