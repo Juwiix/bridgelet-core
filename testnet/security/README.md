@@ -39,6 +39,9 @@ Testnet is usually dismissed as "not real", so the instinct is that it does not 
 | [`disclosure-process.md`](disclosure-process.md) | How to report a security-relevant finding found while testing against testnet | You have found something and do not know where to send it, or what must not be posted publicly |
 | [`reentrancy-observation-log.md`](reentrancy-observation-log.md) | Append-only log of investigated reentrancy-adjacent transactions, including false alarms | You have investigated a transaction that looked reentrancy-adjacent, and the result needs recording |
 | [`dependency-audit-notes.md`](dependency-audit-notes.md) | The SDK/CLI version pairing behind the deployed artifacts, and how to triage an SDK advisory | An SDK advisory or behaviour change lands and someone must decide whether testnet is in range |
+| [`testnet-threat-model.md`](testnet-threat-model.md) | Lightweight, environment-scoped threat model: what is actually at risk on the shared testnet deployment, and what is not | Scoping a testnet demo, review, or audit and you need to know what is genuinely at stake |
+| [`authorized-controller-confusion.md`](authorized-controller-confusion.md) | Why `require_auth()` on the controller is an identity gate, not validation of sweep-authorization content | Before designing an integration that assumes `EphemeralAccount` validates sweep authorization |
+| [`testnet-vs-mainnet-key-reuse-warning.md`](testnet-vs-mainnet-key-reuse-warning.md) | Never reuse a mainnet-intended keypair for testnet experimentation | Before generating, funding, or configuring any testnet key, especially if you hold mainnet keys |
 
 ## Standing rules for this directory
 
