@@ -411,3 +411,13 @@ differ from the checkout.
 - [`../registry/event-topics.md`](../registry/event-topics.md)
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
 - [`../monitoring/README.md`](../monitoring/README.md)
+
+## Quick Reference (added 2026-10-16)
+
+To confirm recovery, compare three things:
+
+1. The `expired` event: `recovery_address`, `total_amount`, `reserve_amount`.
+2. The account's final status: `3` (Expired).
+3. The recovery address's balance change, tied to the same transaction.
+
+In the current source, `expire()` and `recover()` emit the event and update internal bookkeeping but do not transfer the recorded SEP-41 assets. An `expired` event is therefore not proof that funds arrived. Use the balance change.

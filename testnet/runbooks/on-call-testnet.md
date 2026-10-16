@@ -138,3 +138,15 @@ testnet_monitoring: not_configured
 - [`reentrancy-suspicion.md`](reentrancy-suspicion.md)
 - [`../docs/support.md`](../docs/support.md)
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
+
+## Quick Reference (added 2026-10-16)
+
+Testnet support is best effort. The repo defines no rotation, pager, availability target or guaranteed response time.
+
+For integrators this means:
+
+- Do not treat testnet as a business-critical service.
+- Make your tests retry and tolerate outages (`rpc-outage.md`).
+- Expect resets that wipe contracts and accounts.
+
+If that changes, update the "Activation requirements" section.
