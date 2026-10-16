@@ -254,8 +254,24 @@ Check `testnet/registry/contract-status.md` for current deployment status and co
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Filter on the first topic (a Soroban symbol). EphemeralAccount events:
+
+| Topic[0] | Emitted when |
+|---|---|
+| `created` | `initialize()` succeeds |
+| `payment` | First `record_payment()` |
+| `multi_pay` | Later `record_payment()` calls (other assets) |
+| `swept_mul` | `sweep()` or `sweep_claim()` succeeds |
+| `expired` | `expire()` or `recover()` succeeds |
+| `reserve` | A sweep or expiry moves reserve |
+
+Filter by contract ID as well as topic, because every EphemeralAccount instance emits the same symbols. If an expected event is missing, see `testnet/runbooks/event-not-appearing-in-horizon.md`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial event topic documentation for testnet |
+| 1.1 | 2026-10-16 | Added quick reference |
