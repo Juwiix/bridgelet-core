@@ -16,6 +16,7 @@ This directory contains operational runbooks for diagnosing and resolving issues
 | [`insufficient-reserve-errors.md`](insufficient-reserve-errors.md) | Reserve-related failures: network base reserve vs. internal reserve tracking | EphemeralAccount, network layer |
 | [`event-not-appearing-in-horizon.md`](event-not-appearing-in-horizon.md) | Successful transaction but expected contract event missing from Horizon | EphemeralAccount, SweepController |
 | [`contract-not-found-error.md`](contract-not-found-error.md) | RPC cannot resolve a contract ID (stale ID, wrong network, never deployed) | Any contract |
+| [`relayer-submission-failures.md`](relayer-submission-failures.md) | Relayer-side failure submitting a gas-free `claim()` (funding, fee, network) | SweepController, EphemeralAccount |
 
 ## Quick Start
 

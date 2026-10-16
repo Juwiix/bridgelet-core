@@ -170,6 +170,9 @@ testnet_monitoring: not_configured
 ## Related documents
 
 - [`alert-thresholds.md`](alert-thresholds.md)
+- [`third-party-dependency-status.md`](third-party-dependency-status.md)
+- [`weekly-health-summary-template.md`](weekly-health-summary-template.md)
+- [`false-positive-log.md`](false-positive-log.md)
 - [`../runbooks/upgrade-verification.md`](../runbooks/upgrade-verification.md)
 - [`../runbooks/expired-account-recovery-check.md`](../runbooks/expired-account-recovery-check.md)
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
