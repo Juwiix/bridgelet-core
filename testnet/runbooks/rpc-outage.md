@@ -188,3 +188,15 @@ the evidence gaps.
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
 - [`on-call-testnet.md`](on-call-testnet.md)
 - [`incident-postmortem-template.md`](incident-postmortem-template.md)
+
+## Quick Reference (added 2026-10-16)
+
+First five minutes:
+
+1. Write down the time (UTC) and the exact error.
+2. Run one read-only check, for example `getHealth` on the RPC.
+3. Pause CI and automation that depend on testnet.
+4. Do not blindly resubmit in-flight transactions. Look them up by hash first.
+5. Use a fallback endpoint only if a maintainer already approved it (section 5).
+
+If no fallback is approved, wait and then re-check.

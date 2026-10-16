@@ -186,3 +186,15 @@ If manual checks don't reveal the cause:
 - `testnet/registry/account-factory-status.md` - Factory deployment status
 - `testnet/registry/contract-status.md` - Contract deployment overview
 - `docs/api-reference.md` - AccountFactory API reference
+
+## Quick Reference (added 2026-10-16)
+
+`batch_initialize` tells you which address failed, not why. Check these in order for the failed address:
+
+1. Already initialized (`AlreadyInitialized`): use a different salt or index.
+2. `expiry_ledger` is not greater than the current ledger (`InvalidExpiry`).
+3. The creator did not authorize the batch transaction.
+4. The factory has no EphemeralAccount WASM hash stored, or it is wrong.
+5. Salt collision: the derived address already exists.
+
+If the batch is large, retry with `batch_initialize_paginated` and smaller pages.

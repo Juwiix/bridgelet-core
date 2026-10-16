@@ -271,3 +271,15 @@ identity. Never attach signing seeds or secret keys.
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
 - [`../../docs/SIGNATURE_FORMAT.md`](../../docs/SIGNATURE_FORMAT.md)
 - [`../../tools/sweep-signer/`](../../tools/sweep-signer/)
+
+## Quick Reference (added 2026-10-16)
+
+Detect: compare your tracked nonce with `get_nonce` on the SweepController.
+
+| Situation | Fix |
+|---|---|
+| Local nonce is behind | Replace it with the on-chain value and re-sign |
+| Local nonce is ahead | Reset to the on-chain value; a reverted transaction does not advance it |
+| Several signers at once | Serialize signing, or fetch the nonce right before each sign |
+
+Always treat the on-chain value as authoritative.
