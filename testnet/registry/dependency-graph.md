@@ -193,8 +193,24 @@ stellar contract invoke \
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Calls that exist in the code today:
+
+```
+SweepController::execute_sweep ──▶ EphemeralAccount::sweep
+SweepController::claim         ──▶ EphemeralAccount::sweep_claim
+AccountFactory::batch_initialize ─▶ deploys and initializes EphemeralAccount instances
+ReserveContract                   (no callers)
+```
+
+- `ReserveContract` is deployed by the current script but nothing calls it. `EphemeralAccount` uses its own `BASE_RESERVE_STROOPS`.
+- `AccountFactory` needs the stored EphemeralAccount WASM hash, which the deploy script supplies at initialization.
+- Only the first two edges are exercised by sweeps. See `testnet/registry/contract-status.md` for per-contract status.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial dependency graph for testnet topology |
+| 1.1 | 2026-10-16 | Added quick reference |

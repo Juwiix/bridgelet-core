@@ -166,8 +166,24 @@ When contracts are deployed, verify and record:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Public values recorded by the last deploy in `deployments/testnet.json` (`config` block). These are deploy-time settings, **not yet confirmed by querying the contracts**.
+
+| Setting | Value |
+|---|---|
+| Creator (SweepController) | `GCKGORHRRXLVWDVPR565V6JTMYP43TGH4KH5X7REVW7AL4LMZZLF4PAA` |
+| Reserve admin | `GCKGORHRRXLVWDVPR565V6JTMYP43TGH4KH5X7REVW7AL4LMZZLF4PAA` |
+| Recovery address | `GAEG3HJONLNMHB6L37YX5QHHBYWAKDQZ4GV7UPOWUPI6TOKICHG2PRE6` |
+| Authorized signer (Ed25519 public key, hex) | `16ac79d642e33ac696e822cc7175ad7ddd5587a9dd8b6942640cbb832a1ab4bf` |
+
+Per-account `admin` and `authorized_controller` values are set by whoever calls `initialize()` and can differ from the above.
+
+Never record secret keys (`S...`) here. When the contracts are queried or the `initialize` transactions inspected, update this table with the confirmed values.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial admin addresses registry template |
+| 1.1 | 2026-10-16 | Added quick reference |

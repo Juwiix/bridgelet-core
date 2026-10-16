@@ -159,8 +159,23 @@ If an upgrade introduces critical bugs:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+- `upgrade()` needs the `admin` set at `initialize()`, takes a 32-byte WASM hash, and emits **no** event. Nothing else records an upgrade, so log it here by hand.
+- Upload the new WASM first (`stellar contract upload`), then call `upgrade`. It changes only the instance you call it on.
+- Baseline hash: `deployments/testnet.json` records `ephemeralAccountWasmHash` `5e667ea0687341bdccc81538492143b573777dd04b2450cdeb89b02cee62c58e`. Use it as the "old hash" for the first upgrade.
+
+Row to add after each upgrade:
+
+```
+| YYYY-MM-DD | <contract id> | <old hash> | <new hash> | <reason> | <admin address> | <tx hash> |
+```
+
+Verify the change took effect with `testnet/runbooks/upgrade-verification.md`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial upgrade history log template |
+| 1.1 | 2026-10-16 | Added quick reference |

@@ -86,8 +86,20 @@ Example reference:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Before adding a row to the table:
+
+1. Initialize the account with a far-future `expiry_ledger` (about 63 million ledgers is roughly 10 years at 5 seconds per ledger).
+2. Never call `sweep`, `sweep_claim`, `expire` or `recover` on it.
+3. Fund the creator identity separately, so the account's own balance is never used for other tests.
+4. Add the row with the contract ID, creation date and expiry ledger.
+
+A testnet reset deletes these accounts. After a reset, mark every row as gone and re-create them. See `testnet/docs/network-config.md` for reset details.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial known accounts registry template |
+| 1.1 | 2026-10-16 | Added quick reference |
