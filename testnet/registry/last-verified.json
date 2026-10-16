@@ -1,4 +1,5 @@
 {
+  "_comment": "Values are ISO 8601 UTC timestamps of the last live check. Flag any entry older than 30 days.",
   "ephemeral_account": "2026-09-24T00:00:00Z",
   "sweep_controller": "2026-09-24T00:00:00Z",
   "reserve_contract": "2026-09-24T00:00:00Z",
