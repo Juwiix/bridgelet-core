@@ -254,3 +254,15 @@ suspected vulnerabilities through private security reporting.
 - [`../registry/verify-contract-live.md`](../registry/verify-contract-live.md)
 - [`on-call-testnet.md`](on-call-testnet.md)
 - [`rpc-outage.md`](rpc-outage.md)
+
+## Quick Reference (added 2026-10-16)
+
+Evidence to collect before drawing conclusions:
+
+- The transaction hash and the full result, including all nested invocations.
+- Events for the affected ledger, in order.
+- Account `get_status` before and after, and the SweepController nonce before and after.
+- Token balances for the account and the destination before and after.
+- The WASM hash the contract was running at that ledger.
+
+An event alone does not show reentrancy. Compare the call trace and state changes with the baseline table above.
