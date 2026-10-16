@@ -113,8 +113,25 @@ When deploying contracts to testnet, update this table and the corresponding sta
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+The table above reflects 2026-09-24. Newer sources:
+
+- `scripts/deploy-testnet.sh` now deploys and initializes all four contracts.
+- `deployments/testnet.json` (`deployedAt` 2026-10-10T04:38:14Z, updated in commit `e7efd55`) lists an ID for each.
+
+| Contract | ID in `deployments/testnet.json` |
+|---|---|
+| EphemeralAccount | `CB7Z22TXR6ZKG7MDXIGJL6QVQQ3L3DQOFR6JV325NZK4CTYWFPVZBBP3` |
+| SweepController | `CAJB4RRM5JRPXLITC5JUA7Q3LU2WQJDRPXVKMORXWHJJBPZRYWDJ5V4S` |
+| ReserveContract | `CBG3Y4GWFTL4D37JGV2XWAWC7EUQ7XGH4XM3SFLQYYSKPB2IYMAS54HY` |
+| AccountFactory | `CDBY4L3NTLW4OBZZTY73VL3NNWO2AGFFGBRJVDL3IMKDDLFF2W57WK6H` |
+
+`testnet/docs/network-config.md` lists different IDs for the last three, from an earlier deploy. Prefer the JSON file. Mark a contract as deployed in the table only after `verify-contract-live.md` passes for it.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial testnet contract status registry |
+| 1.1 | 2026-10-16 | Added quick reference |

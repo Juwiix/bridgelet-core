@@ -132,8 +132,19 @@ stellar contract invoke --id $RESERVE_CONTRACT_ID --network testnet --source tes
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Gap 1 (not deployed) is closed in the scripts: `scripts/deploy-testnet.sh` now deploys and initializes `ReserveContract`, using `RESERVE_ADMIN_ADDRESS` (default: the creator). `deployments/testnet.json` records its ID.
+
+Gap 2 (no wiring) is still open: nothing in `contracts/ephemeral_account` references `ReserveContract`.
+
+The value `EphemeralAccount` actually uses is `BASE_RESERVE_STROOPS = 1_000_000_000` stroops. At 10,000,000 stroops per XLM that is **100 XLM**, not 1 XLM as written elsewhere in this file.
+
+Setting a base reserve on the deployed `ReserveContract` does not change any `EphemeralAccount`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial ReserveContract status tracking |
+| 1.1 | 2026-10-16 | Added quick reference |

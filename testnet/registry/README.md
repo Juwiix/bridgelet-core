@@ -125,8 +125,21 @@ Workflow:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+The files in this registry were written on 2026-09-24, when nothing was recorded as deployed. Since then `scripts/deploy-testnet.sh` was extended to deploy and initialize all four contracts, and `deployments/testnet.json` records a deploy at `2026-10-10T04:38:14Z`.
+
+Refresh order after any deploy or reset:
+
+1. Read the new IDs and WASM hash from `deployments/testnet.json`.
+2. Confirm each contract answers (`verify-contract-live.md`).
+3. Update `contract-status.md` and `wasm-hash-reference.md`.
+4. Update `last-verified.json` only for contracts you actually probed.
+5. Add a row to `upgrade-history.md` if the code changed in place.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial registry README |
+| 1.1 | 2026-10-16 | Added quick reference |

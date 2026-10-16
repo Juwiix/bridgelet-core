@@ -345,8 +345,21 @@ echo "Claim test passed!"
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+| Question | Answer |
+|---|---|
+| Who signs? | The recipient, through a Soroban auth entry |
+| Who pays fees and submits? | The relayer |
+| Does it use the nonce? | Yes, the same counter as `execute_sweep` |
+| Is a locked destination enforced? | Yes |
+| Success looks like | `get_status` returns `2` (Swept) and `SweepCompleted` shows the recipient as destination |
+
+Use two funded identities (relayer and recipient). If `claim()` fails, start with `testnet/runbooks/stuck-ephemeral-account.md`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial gas-free claim testing guide |
+| 1.1 | 2026-10-16 | Added quick reference |
