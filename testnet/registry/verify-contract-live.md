@@ -317,8 +317,26 @@ EPHEMERAL_ID=<ID> SWEEP_ID=<ID> ./healthcheck.sh
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Fastest liveness probe: the SweepController, because the deploy script initializes it.
+
+```bash
+stellar contract invoke --id <SWEEP_CONTROLLER_ID> --network testnet \
+  --source testnet-healthcheck -- get_nonce
+```
+
+| Result | Meaning |
+|---|---|
+| A `u64` | Contract is live and initialized |
+| Contract or code not found | Stale ID or testnet reset. See `testnet/runbooks/contract-not-found-error.md` |
+| Network or timeout error | RPC problem. See `testnet/runbooks/rpc-outage.md` |
+
+The deploy script does not initialize `EphemeralAccount` templates, so `get_status` or `is_expired` on a bare template may return an error. Test those on an account you initialized yourself.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial health check procedure for testnet contracts |
+| 1.1 | 2026-10-16 | Added quick reference |
