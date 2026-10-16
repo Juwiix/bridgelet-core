@@ -16,6 +16,13 @@ This directory contains operational runbooks for diagnosing and resolving issues
 | [`insufficient-reserve-errors.md`](insufficient-reserve-errors.md) | Reserve-related failures: network base reserve vs. internal reserve tracking | EphemeralAccount, network layer |
 | [`event-not-appearing-in-horizon.md`](event-not-appearing-in-horizon.md) | Successful transaction but expected contract event missing from Horizon | EphemeralAccount, SweepController |
 | [`contract-not-found-error.md`](contract-not-found-error.md) | RPC cannot resolve a contract ID (stale ID, wrong network, never deployed) | Any contract |
+| [`expired-account-recovery-check.md`](expired-account-recovery-check.md) | Verify funds and events after an account expires | EphemeralAccount |
+| [`incident-postmortem-template.md`](incident-postmortem-template.md) | Template for writing up a testnet incident | Any |
+| [`nonce-desync.md`](nonce-desync.md) | Off-chain nonce out of sync with `SweepController` | SweepController |
+| [`on-call-testnet.md`](on-call-testnet.md) | Best-effort support expectations for testnet | Any |
+| [`reentrancy-suspicion.md`](reentrancy-suspicion.md) | Investigate suspected reentrancy from on-chain evidence | EphemeralAccount, SweepController |
+| [`rpc-outage.md`](rpc-outage.md) | Soroban RPC or Horizon testnet outage | Network layer |
+| [`upgrade-verification.md`](upgrade-verification.md) | Confirm an `EphemeralAccount::upgrade()` took effect | EphemeralAccount |
 
 ## Quick Start
 
@@ -56,3 +63,4 @@ To add a new runbook:
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial runbook index |
+| 1.1 | 2026-10-16 | Listed the remaining runbooks in the index |
