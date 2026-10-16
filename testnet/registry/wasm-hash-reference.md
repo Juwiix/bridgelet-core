@@ -145,8 +145,28 @@ Pair with `testnet/registry/last-verified.json` - if WASM hash in this doc doesn
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+The one hash recorded in the repo today is for EphemeralAccount. `deployments/testnet.json` (`config.ephemeralAccountWasmHash`) and `testnet/docs/network-config.md` agree on it:
+
+```
+5e667ea0687341bdccc81538492143b573777dd04b2450cdeb89b02cee62c58e
+```
+
+Hashes for SweepController, ReserveContract and AccountFactory are not recorded anywhere in the repo, so they stay `TBD` until someone reads them from a deploy log or from the chain.
+
+To check a local build against the recorded hash:
+
+```bash
+stellar contract build
+sha256sum target/wasm32v1-none/release/ephemeral_account.wasm
+```
+
+If the two differ, the testnet code was built from a different commit or toolchain.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial WASM hash reference template |
+| 1.1 | 2026-10-16 | Added quick reference |

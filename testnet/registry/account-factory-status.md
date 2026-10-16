@@ -159,8 +159,22 @@ Before considering AccountFactory "testnet-ready":
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Part of the status table above is out of date. Current repo state:
+
+| Item | Now |
+|---|---|
+| Built by `scripts/build.sh` | Yes, it builds all four contracts |
+| Tested in CI | Yes, `account_factory` is in the test job in `.github/workflows/test.yml` |
+| Deployed by `scripts/deploy-testnet.sh` | Yes, and initialized with the EphemeralAccount WASM hash |
+| ID recorded | Yes, `accountFactory` in `deployments/testnet.json` |
+
+Still open: confirm on testnet that the factory answers (`verify-contract-live.md`), and the known gap that `batch_initialize` reports which account failed but not why (`testnet/runbooks/account-factory-batch-failure.md`).
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial AccountFactory status tracking |
+| 1.1 | 2026-10-16 | Added quick reference |
