@@ -182,8 +182,22 @@ assert_eq!(usdc_payment.amount, 100_000_000); // NOT 50_000_000
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Assertions for integration tests:
+
+| Call | Expect |
+|---|---|
+| `record_payment` for a new asset | Success |
+| `record_payment` again for the same asset | `DuplicateAsset` (code 13); original amount is unchanged |
+| `record_payment` for a different asset | Success, `multi_pay` event |
+| `record_payment` for an 11th distinct asset | `TooManyPayments` (code 14) |
+
+A repeat call is an error, not a no-op and not an overwrite.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial multi-payment edge case documentation |
+| 1.1 | 2026-10-16 | Added quick reference |

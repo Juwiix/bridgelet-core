@@ -301,8 +301,17 @@ If all checks pass but account still stuck:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Three checks that resolve most cases:
+
+1. **Status.** Call `get_status`: `0` Active, `1` PaymentReceived, `2` Swept, `3` Expired. A `2` means it already swept.
+2. **Ledger.** Compare the current ledger with `expiry_ledger`. Expiry is by ledger sequence, not wall-clock time.
+3. **Caller.** `sweep()` and `sweep_claim()` only accept the `authorized_controller`. Go through `SweepController::execute_sweep` or `claim`, not a direct call.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial stuck ephemeral account runbook |
+| 1.1 | 2026-10-16 | Added quick reference |

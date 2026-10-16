@@ -213,8 +213,22 @@ For SDK/relayer implementers:
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+The signature covers four things, and each must match what the contract sees:
+
+| Input | Check |
+|---|---|
+| Nonce | Equals `get_nonce` on the SweepController right now |
+| Contract ID | The SweepController you are calling, on testnet (not a stale or other-network ID) |
+| Destination | Exactly the address passed to `execute_sweep` |
+| Key | Matches the `authorized_signer` the controller was initialized with |
+
+A locked-destination violation is a different error from a bad signature. If the checks pass and it still fails, read `testnet/runbooks/nonce-desync.md`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial failed sweep signature runbook |
+| 1.1 | 2026-10-16 | Added quick reference |
