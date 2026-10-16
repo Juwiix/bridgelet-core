@@ -290,8 +290,26 @@ soroban sandbox start
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+Ledgers close about every 5 seconds, so `expiry_ledger = current_ledger + seconds / 5`.
+
+| Wait | Ledgers to add |
+|---|---|
+| 5 minutes | 60 |
+| 10 minutes | 120 |
+| 1 hour | 720 |
+| 24 hours | 17,280 |
+
+```bash
+EXPIRY=$((CURRENT_LEDGER + 600 / 5))   # about 10 minutes from now
+```
+
+Contracts compare ledger sequence, not wall-clock time. Re-read the current ledger right before `initialize()`, since the value drifts while you work.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial expiry ledger computation guide |
+| 1.1 | 2026-10-16 | Added quick reference |

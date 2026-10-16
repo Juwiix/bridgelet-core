@@ -258,8 +258,17 @@ stellar contract events \
 
 ---
 
+## Quick Reference (added 2026-10-16)
+
+- Read it with `get_nonce` on the SweepController. It returns a `u64`.
+- It starts at `0` and goes up by 1 after each successful `execute_sweep()` or `claim()`. It never goes down.
+- The signed message is `SHA256(destination || nonce || contract_id)`.
+- Read the nonce just before you sign. Read it again after any failed submission.
+- If signatures keep failing with a correct key, see `testnet/runbooks/failed-sweep-signature.md` and `testnet/runbooks/nonce-desync.md`.
+
 ## Version History
 
 | Version | Date | Changes |
 |---|---|---|
 | 1.0 | 2026-09-24 | Initial nonce tracking guide |
+| 1.1 | 2026-10-16 | Added quick reference |
